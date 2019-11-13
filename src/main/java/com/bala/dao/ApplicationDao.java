@@ -30,7 +30,7 @@ public class ApplicationDao {
 	 * @param entity
 	 */
 	public void deleteEntity(Object entity) {
-		entityManager.remove(entity);
+		entityManager.remove(entityManager.contains(entity) ? entity : entityManager.merge(entity));
 	}
 	
 	/**
