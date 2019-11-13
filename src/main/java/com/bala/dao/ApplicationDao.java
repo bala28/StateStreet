@@ -1,5 +1,7 @@
 package com.bala.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,14 @@ public class ApplicationDao {
 	@Autowired
 	private EntityManager entityManager;
 	
-	
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Student> getStudentsNotRegistered(){
+		String qlString = "Select s from Student s where s.studentId not in (select distinct cs.studentId from CourseStudents cs)";
+		return entityManager.createQuery(qlString).getResultList();
+	}
 	
 	/**
 	 * 

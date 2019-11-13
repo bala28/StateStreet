@@ -1,5 +1,6 @@
 Insert into student(student_id,student_name) values(1,'student1');
 Insert into student(student_id,student_name) values(2,'student2');
+Insert into student(student_id,student_name) values(4,'student4');
 
 Insert into course(course_id,course_name) values(1,'course1');
 Insert into course(course_id,course_name) values(2,'course2');

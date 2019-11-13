@@ -1,5 +1,6 @@
 package com.bala.rest;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.ArrayList;
@@ -25,12 +26,14 @@ class StateStreetApplicationTests {
 	
 	@Autowired
 	private AppService appService;
+	
 
 	@Test
 	@DisplayName("Test Get Student by Id")
 	public void testGetStudent() {
 		assertNotNull(applicationDao.getStudentById(1));
 	}
+	
 
 	//@Test
 	@DisplayName("Test Get Students by Course ")
@@ -61,6 +64,12 @@ class StateStreetApplicationTests {
 	@DisplayName("Test Delete Students")
 	public void testDeleteStudent() {
 		appService.deleteStudent(applicationDao.getStudentById(2));
+	}
+	
+	@Test
+	@DisplayName("Test Get Students Not Registered")
+	public void testGetStudentsNotRegistered(){
+		assertFalse(applicationDao.getStudentsNotRegistered().isEmpty());
 	}
 
 }
