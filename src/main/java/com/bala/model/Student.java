@@ -24,7 +24,7 @@ import lombok.Data;
 @Entity
 @Table(name="student")
 @Data
-public class Student {
+public class Student implements Comparable<Student>{
 
 	@Id
 	@Column(name="student_id")
@@ -40,5 +40,12 @@ public class Student {
 	joinColumns = @JoinColumn(name = "student_id"), 
 	inverseJoinColumns = @JoinColumn(name = "course_id"))
     Set<Course> courses;
+
+	
+
+	@Override
+	public int compareTo(Student o) {
+		return this.getStudentName().compareTo(o.getStudentName());
+	}
 	
 }

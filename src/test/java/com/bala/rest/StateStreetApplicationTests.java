@@ -38,7 +38,7 @@ class StateStreetApplicationTests {
 	//@Test
 	@DisplayName("Test Get Students by Course ")
 	public void testGetStudentsByCourseId() {
-		Set<Student> students =	appService.getStudentsByCourse(1);
+		List<Student> students =	appService.getStudentsByCourse(1);
 		assertNotNull(students);
 	//	assertFalse(students.isEmpty());
 	}

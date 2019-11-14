@@ -1,7 +1,9 @@
 package com.bala.dao;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -15,10 +17,10 @@ import com.bala.model.Student;
 
 @Component
 public class AppService {
-	
+
 	@Autowired
 	private ApplicationDao appDao;
-	
+
 	/**
 	 * 
 	 * @param studentId
@@ -27,7 +29,7 @@ public class AppService {
 	public Student getStudentById(Integer studentId) {
 		return appDao.getStudentById(studentId);
 	}
-	
+
 	/**
 	 * 
 	 * @param student
@@ -52,16 +54,18 @@ public class AppService {
 			appDao.saveEntity(cs);
 		});
 	}
-	
+
 	/**
 	 * 
 	 * @param courseId
 	 * @return
 	 */
 	@Transactional
-	public Set<Student> getStudentsByCourse(Integer courseId){
+	public List<Student> getStudentsByCourse(Integer courseId){
 		Course course = appDao.getCourseByCourseId(courseId);
 		Hibernate.initialize(course.getStudents());
-		return course.getStudents();
+		List<Student> studentsList = course.getStudents().stream().collect(Collectors.toList());
+		Collections.sort(studentsList);
+		return studentsList;
 	}
 }
