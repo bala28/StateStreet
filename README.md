@@ -1,11 +1,10 @@
-#Technologies
+# Technologies
 
   Spring boot, Jpa, Flyway , java8 ,H2 database(in memory)
   
-# Run
-  gradle run test
-  
 
+  
+## We love Hibernate and also hate it!! Would love to hear your opinion on best practices. 
 ORM(hibernate,ibatis) has various advantage and there are best pratices for Hibernate.
 
 
