@@ -26,3 +26,9 @@ Use batch operations (like delete) if needed
 ## What if we want to record course scores?  What possible changes need to be made?  Explain briefly.
 
 We can create another table where the columns will be (course_student_id and score) if you want to de-normalize more. we can also add score column to student_courses table.
+
+
+# Run Test
+download the git repo and run the below command in base directory,  
+
+./gradlew test
